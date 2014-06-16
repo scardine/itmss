@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block body %}
+ <div class="top">
+     <div class="container">
+            <div class="nav">
+
+<!---- menu--->
+                <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">logo</a>
+        </div>
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/">Home</a></li>
+            <li><a href="../navbar-static-top/">ITM Tecnologia</a></li>
+              <li><a href="../navbar/">Rede ITM</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Clientes <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">ITM Treinamentos</a></li>
+                <li><a href="#">ITM Eventos</a></li>
+                <li><a href="#">ITM Facility</a></li>
+              </ul>
+            </li>
+            <li class="active"><a href="./">Fixed top</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+<!--- menu ---->
+
+            </div>
+            <div class="banner">banner</div>
+        </div>
+     </div>
+     <hr>
+    <div class="container">
+        {% for secao in secoes %}
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="text-{{ secao.alinhamento }}" style="color: {{ secao.cor }}">{{ secao.titulo }}</h1>
+                </div>
+                {% if secao.alinhamento == 'right' %}
+                <div class="col-xs-6 col-md-2"><img src="{{ secao.imagem.icone.url }}" class="img-responsive"></div>
+                {% endif %}
+                <div class="col-xs-6 col-md-10">{{ secao.conteudo|safe }}</div>
+                {% if secao.alinhamento == 'left' %}
+                <div class="col-xs-6 col-md-2"><img src="{{ secao.imagem.icone.url }}" class="img-responsive"></div>
+                {% endif %}
+            </div>
+            {% if not forloop.last %}
+                <hr/>
+            {% endif %}
+        {% endfor %}
+    </div>
+<hr>
+<div class="servicos">
+    <div class="container">
+            <div class="row">
+
+                <h1 class="servicos">Como Podemos Ajudar?</h1>
+                <p>texto</p>
+                <div class="row">
+                    {% for servico in servicos %}
+                        <div class="col-md-3">
+                            <div class="highlight">
+                                <div><img src="{{ servico.imagem.icone.url }}"></div>
+                                <div>{{ servico.conteudo|safe }}</div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+    </div>
+</div>
+<hr>
+    <div class="container">
+            <div class="row">
+                {% for contato in contatos %}
+                    <br>
+                <div class="col-lg-12">{{ contato.mapa|safe }}</div>
+                <div class="col-md-6 col-xs-12">
+                    <h1>{{ contato.titulo }}</h1>
+                    <br>
+                    <p>{{ contato.endereco }}</p>
+                    <p>{{ contato.telefone }}</p>
+                    <p>{{ contato.fax }}</p>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <h1>Contato</h1>
+                    <div>
+                        <form action="." class="form">
+                            {% csrf_token %}
+                            {% bootstrap_form form %}
+                            {% buttons %}
+                                <button type="submit" class="btn btn-primary">
+                                    {% bootstrap_icon "star" %} Enviar
+                                </button>
+                            {% endbuttons %}
+                        </form>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    </div>
+{% endblock %}

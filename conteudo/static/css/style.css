@@ -1,0 +1,55 @@
+body{
+    background: #f0f3f3;
+}
+.top{
+    background: url("../images/top_bg.jpg") repeat;
+    min-height: 650px;
+}
+.icone_sobre_itm{
+    background: url("../images/icone_sobre_itm.png") no-repeat;
+    width: 123px;
+    height: 124px;
+}
+.icone_rede_itm{
+    background: url("../images/icone_rede_itm.png") no-repeat;
+    width: 134px;
+    height: 129px;
+}
+.servicos{
+    background: url("../images/bg_servicos.jpg") repeat;
+
+}
+hr{
+    background: url("../images/divisa.jpg") repeat-x;
+    height: 2px;
+    margin: 0;
+    padding: 0;
+}
+p.conteudo{
+    color: #666666;
+    line-height: 40px;
+}
+h1{
+    text-shadow: 0 2px 2px gray;
+    font-family: 'Sanchez', serif;
+}
+h1.itmtecnologia{
+    color: #0ea4b8;
+}
+h1.itmrede{
+    color: #5ea600;
+}
+h1.servicos{
+    color: #fff;
+    text-align: center;
+}
+.align{
+    text-align: right;
+}
+.highlight {
+    background-color: #ffffff;
+    border: 1px solid #E1E1E8;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    padding: 9px 14px;
+}
