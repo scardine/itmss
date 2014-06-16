@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from conteudo.forms import ContactForm
-from conteudo.models import Secao, Servico, Contato
+from conteudo.models import Secao, Servico, Contato, Portifolio
 
 
 class Home(TemplateView):
@@ -16,3 +16,8 @@ class Home(TemplateView):
         return dados
 
 
+class PortifolioList(ListView):
+    template_name = 'home.html'
+    model = Portifolio
+    
+    
